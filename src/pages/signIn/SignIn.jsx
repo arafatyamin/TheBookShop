@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
 
 const SignIn = () => {
 
+    const {signIn} = useContext(AuthContext)
 
     const handleSubmit = (e) => {
         e.preventDefault();
-     const email =e.target.email.value;
+     const email = e.target.email.value;
      const password = e.target.password.value;
      console.log(email, password)
+     
+     signIn(email, password)
+     .then(result => {
+        const user = result.user;
+        console.log(user)
+     })
+     .catch(err =>console.error(err));
     }
     return (
         <div className="bg-white dark:bg-gray-900">

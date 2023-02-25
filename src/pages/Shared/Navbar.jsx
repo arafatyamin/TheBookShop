@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from "react-router-dom";
+import { AuthContext } from '../../context/AuthProvider';
 
 const Navbar = () => {
-
+    const {user,logOut} = useContext(AuthContext)
     const [taggle, setTaggle] = useState(false);
+
+    // const signOut = () =>{
+    //   logOut()
+    //   .then(() =>{}).catch(err =>console.error(err))
+    // }
 
     const navLinks = <>
         <div
@@ -35,7 +41,9 @@ const Navbar = () => {
           </Link>
 
           {/* login user see this option */}
-          <Link
+          {
+            user?.uid? <>
+              <Link
             to="/myReviews"
             class="lg:inline-flex lg:w-auto w-full px-3 py-2 font-semibold text-white text-xl items-center justify-center hover:border-t-2 hover:border-white"
           >
@@ -48,18 +56,22 @@ const Navbar = () => {
             <span>Add Service</span>
           </Link>
           <Link
+            onClick={()=>logOut()}
+            class="lg:inline-flex lg:w-auto w-full px-3 py-2 font-semibold text-white text-xl items-center justify-center hover:border-t-2 hover:border-white"
+          >
+            <span>sign Out</span>
+          </Link>
+            </> : <Link
             to="/signIn"
             class="lg:inline-flex lg:w-auto w-full px-3 py-2 font-semibold text-white text-xl items-center justify-center hover:border-t-2 hover:border-white"
           >
             <span>sign In</span>
           </Link>
-          <Link
-            to="/signIn"
-            class="lg:inline-flex lg:w-auto w-full px-3 py-2 font-semibold text-white text-xl items-center justify-center hover:border-t-2 hover:border-white"
-          >
-            <span>sign Out</span>
-          </Link>
+          }
           
+          
+          
+          <p className='text-white'>{user?.email}</p>
         </div>
     </>
 
@@ -78,7 +90,7 @@ const Navbar = () => {
           </svg>
         </button>
       <div
-        class={`${taggle?"block":"hidden"} top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto`}
+        class={`${taggle?"block":"hidden"} top-navbar w-full text-start pl-6 lg:inline-flex lg:flex-grow lg:w-auto bg-gray-900 rounded-b-lg left-0 absolute top-20 lg:bg-transparent opacity-70 text-white shadow-2xl`}
         id="navigation"
       >
         {navLinks}
