@@ -5,6 +5,7 @@ import { AuthContext } from '../../context/AuthProvider';
 const Navbar = () => {
     const {user,logOut} = useContext(AuthContext)
     const [taggle, setTaggle] = useState(false);
+    const [dropdownProfile,setDropdownProfile] = useState(false)
 
     // const signOut = () =>{
     //   logOut()
@@ -55,12 +56,7 @@ const Navbar = () => {
           >
             <span>Add Service</span>
           </Link>
-          <Link
-            onClick={()=>logOut()}
-            class="lg:inline-flex lg:w-auto w-full px-3 py-2 font-semibold text-white text-xl items-center justify-center hover:border-t-2 hover:border-white"
-          >
-            <span>sign Out</span>
-          </Link>
+          <img onClick={()=> setDropdownProfile(!dropdownProfile)} src={user?.photoURL} className='w-10 h-10 rounded-full cursor-pointer opacity-100' alt="" />
             </> : <Link
             to="/signIn"
             class="lg:inline-flex lg:w-auto w-full px-3 py-2 font-semibold text-white text-xl items-center justify-center hover:border-t-2 hover:border-white"
@@ -68,10 +64,6 @@ const Navbar = () => {
             <span>sign In</span>
           </Link>
           }
-          
-          
-          
-          <p className='text-white'>{user?.email}</p>
         </div>
     </>
 
@@ -90,11 +82,27 @@ const Navbar = () => {
           </svg>
         </button>
       <div
-        class={`${taggle?"block":"hidden"} top-navbar w-full text-start pl-6 lg:inline-flex lg:flex-grow lg:w-auto bg-gray-900 rounded-b-lg left-0 absolute top-20 lg:bg-transparent opacity-70 text-white shadow-2xl`}
+        class={`${taggle?"block":"hidden"} top-navbar w-full text-start pl-6 lg:inline-flex lg:flex-grow lg:w-auto bg-gray-900 opacity-70 lg:bg-transparent  rounded-b-lg left-0 top-20  text-white shadow-2xl lg:shadow-none`}
         id="navigation"
       >
         {navLinks}
       </div>
+      
+      {/* user profile */}
+      
+      <div class={`${dropdownProfile ? "block":"hidden"} font-sans mt-20 ml-auto w-32 flex flex-row justify-end items-end`}>
+  <div class="card  bg-white  shadow-xl hover:shadow">
+     <img class="mx-auto rounded-full -mt-20 border-8 border-white" src={user?.photoURL} alt="" />
+     <div class="text-center mt-2 text-3xl font-medium">{user?.displayName}</div>
+     <div class="text-center mt-2 font-light text-sm">{user.email}</div>
+     <Link
+            onClick={()=>logOut()}
+            class="lg:inline-flex lg:w-auto w-full px-3 py-2 font-semibold text-black text-xl items-center justify-center border-2 border-gray-900"
+          >
+            <span>sign Out</span>
+          </Link>
+</div>
+</div>
     </nav>
     );
 };

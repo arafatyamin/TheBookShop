@@ -1,32 +1,62 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
 const SignUp = () => {
-    const {createUser} = useContext(AuthContext);
-    const handleSubmit = (e) => {
-        e.preventDefault();
-     const name =e.target.name.value;
-     const file =e.target.file.value;
-     const email =e.target.email.value;
-     const password = e.target.password.value;
-     console.log(name, file, email, password)
+    const {createUser, loading, updateUserProfile} = useContext(AuthContext);
+    const [signUpError, setSignUPError] = useState('');
+    const [createdUserEmail, setCreatedUserEmail] = useState('')
 
-     createUser(email, password)
-     .then(result => {
-        const user = result.user;
-        console.log(user)
-     })
-     .catch(err => console.error(err))
-    }
+    const handleSubmit = event => {
+        event.preventDefault();
+        const name =event.target.name.value;
+        const url = event.target.image.value;
+     const email =event.target.email.value;
+     const password = event.target.password.value;
+     console.log(name, url, email, password)
+
+     // update imagebb
+
+            createUser(email, password)
+            .then(result => {
+                updateUserProfile(name, url)
+            })
+            .catch(error => {
+             console.log(error)
+             
+            });
+            
+             
+             
+             const user = {
+                 name: name,
+                 email: email,
+                 image: url,
+             }
+             
+
+             const saveUser = ( email) =>{
+             fetch('http://localhost:5000/users', {
+                 method: 'POST',
+                 headers: {
+                     'content-type': 'application/json'
+                 },
+                 body: JSON.stringify(user)
+             })
+             .then(res => res.json())
+             .then(data =>{ 
+                 console.log(data)
+                 setCreatedUserEmail(email)
+             })
+         }
+
+ }
     return (
         <div className="bg-white dark:bg-gray-900">
         <div className="flex justify-center h-screen">
             <div className="hidden w-full bg-cover lg:block lg:w-1/2" style={{backgroundImage: "url(https://i.ibb.co/1RZPttf/banner4.jpg)"}}>
                 <div className="flex items-center h-full px-20 bg-gray-900 bg-opacity-40">
-                    <div>
-                        <h2 className="text-4xl font-bold text-white">Brand</h2>
-                        
+                    <div> 
                         <p className="max-w-xl mt-3 text-gray-300">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In autem ipsa, nulla laboriosam dolores, repellendus perferendis libero suscipit nam temporibus molestiae</p>
                     </div>
                 </div>
@@ -35,8 +65,6 @@ const SignUp = () => {
             <div className="flex bg-transparent items-center w-full lg:max-w-md px-6 mx-auto lg:w-1/2">
                 <div className="flex-1">
                     <div className="text-center">
-                        <h2 className="text-4xl font-bold text-center lg:text-gray-700 lg:dark:text-white">Brand</h2>
-                        
                         <p className="mt-3 text-gray-500 dark:text-gray-300">Sign in to access your account</p>
                     </div>
 
@@ -48,7 +76,7 @@ const SignUp = () => {
                             </div>
                             <label class="block pt-6">
     <span class="sr-only t-2">Choose profile photo</span>
-    <input type="file" name="file" class="w-full text-sm text-slate-500
+    <input type="text" name="image" class="w-full text-sm text-slate-500
       file:mr-4 file:py-2 file:px-4
       file:rounded-full file:border-0
       file:text-sm file:font-semibold
