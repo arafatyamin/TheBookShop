@@ -3,108 +3,108 @@
       "title": "Analysis",
       "price": "220",
       "url": "https://i.ibb.co/ZY77cBY/cover1.jpg",
-      "reviews": [
+      "reviews": 
         {
           "rating": "412",
           "total_reviews": "112"
         }
-      ],
-      "user": [
+      ,
+      "user": 
         {
           "email": "ninaguzman@ad.com",
           "name": "seller"
         }
-      ],
+      ,
       "about": "Accelerate innovation with world-class tech teams. Our all service offerings to enhance Our experience makes us stand out from other web development."
     },
     {
       "title": "Data Security",
       "price": "260",
       "url": "https://i.ibb.co/ZY77cBY/cover1.jpg",
-      "reviews": [
+      "reviews": 
         {
             "rating": "212",
             "total_reviews": "112"
         }
-      ],
-      "user": [
+      ,
+      "user": 
         {
             "email": "ninaguzman@ad.com",
             "name": "seller"
         }
-      ],
+      ,
       "about": "Accelerate innovation with world-class tech teams. Our all service offerings to enhance Our experience makes us stand out from other web development."
     },
     {
       "title": "Innovation",
       "price": "260",
       "url": "https://i.ibb.co/ZY77cBY/cover1.jpg",
-      "reviews": [
+      "reviews": 
         {
             "rating": "518",
             "total_reviews": "112"
         }
-      ],
-      "user": [
+      ,
+      "user": 
         {
             "email": "ninaguzman@ad.com",
             "name": "seller"
         }
-      ],
+      ,
       "about": "Accelerate innovation with world-class tech teams. Our all service offerings to enhance Our experience makes us stand out from other web development."
     },
     {
       "title": "Seo & Optimization",
       "price": "260",
       "url": "https://i.ibb.co/ZY77cBY/cover1.jpg",
-      "reviews": [
+      "reviews": 
         {
             "rating": "198",
             "total_reviews": "112"
         }
-      ],
-      "user": [
+      ,
+      "user": 
         {
             "email": "ninaguzman@ad.com",
             "name": "seller"
         }
-      ],
+      ,
       "about": "Accelerate innovation with world-class tech teams. Our all service offerings to enhance Our experience makes us stand out from other web development."
     },
     {
       "title": "Email Marketing",
       "price": "260",
       "url": "https://i.ibb.co/ZY77cBY/cover1.jpg",
-      "reviews": [
+      "reviews": 
         {
             "rating": "133",
             "total_reviews": "112"
         }
-      ],
-      "user": [
+      ,
+      "user": 
         {
             "email": "ninaguzman@ad.com",
             "name": "seller"
         }
-      ],
+      ,
       "about": "Accelerate innovation with world-class tech teams. Our all service offerings to enhance Our experience makes us stand out from other web development."
     },
     {
       "title": "Development",
       "price": "260",
       "url": "https://i.ibb.co/ZY77cBY/cover1.jpg",
-      "reviews": [
+      "reviews": 
         {
             "rating": "313",
             "total_reviews": "112"
         }
-      ],
-      "user": [
+      ,
+      "user": 
         {
             "email": "ninaguzman@ad.com",
             "name": "seller"
         }
-      ],
+      ,
       "about": "Accelerate innovation with world-class tech teams. Our all service offerings to enhance Our experience makes us stand out from other web development."
     }
   ]

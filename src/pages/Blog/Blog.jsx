@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const Blog = () => {
     return (
-        <section className="w-full mx-auto sm:px-6 lg:px-4 pb-12 h-full text-white px-[100px] bg-gray-900">
+        <section className="w-full mx-auto sm:px-6 lg:px-4 pb-12 h-full text-gray-900 px-[100px] bg-white pt-5">
     <article>
-        <h2 className="text-2xl font-extrabold">BLOG</h2>
+        <h2 className="text-2xl font-extrabold text-center">BLOG</h2>
         <section className="mt-6 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-8">
             <article className="relative w-full h-64 bg-cover bg-center group rounded-lg overflow-hidden shadow-lg hover:shadow-2xl  transition duration-300 ease-in-out"
                 style={{backgroundImage: "url('https://images.unsplash.com/photo-1623479322729-28b25c16b011?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80')"}}>

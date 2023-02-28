@@ -1,11 +1,10 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
 const SignUp = () => {
     const {createUser, loading, updateUserProfile} = useContext(AuthContext);
-    const [signUpError, setSignUPError] = useState('');
-    const [createdUserEmail, setCreatedUserEmail] = useState('')
+    const navigate = useNavigate();
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -26,16 +25,12 @@ const SignUp = () => {
              
             });
             
-             
-             
              const user = {
                  name: name,
                  email: email,
                  image: url,
              }
              
-
-             const saveUser = ( email) =>{
              fetch('http://localhost:5000/users', {
                  method: 'POST',
                  headers: {
@@ -46,9 +41,8 @@ const SignUp = () => {
              .then(res => res.json())
              .then(data =>{ 
                  console.log(data)
-                 setCreatedUserEmail(email)
+                 navigate('/', {replace: true})
              })
-         }
 
  }
     return (
@@ -72,21 +66,13 @@ const SignUp = () => {
                         <form onSubmit={handleSubmit}>
                             <div>
                                 <label for="name" className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Name</label>
-                                <input type="text" name="name" id="name" placeholder="sakib al hasan" className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                                <input type="text" name="name" id="name" placeholder="sakib al hasan" className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" required />
                             </div>
-                            <label class="block pt-6">
-    <span class="sr-only t-2">Choose profile photo</span>
-    <input type="text" name="image" class="w-full text-sm text-slate-500
-      file:mr-4 file:py-2 file:px-4
-      file:rounded-full file:border-0
-      file:text-sm file:font-semibold
-      file:bg-pink-300 file:text-zinc-900
-      hover:file:bg-rose-300
-    "/>
-  </label>
+                            <label for="image" className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Choose profile photo</label>
+    <input type="text" name="image" id="image" placeholder="profile url" className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" required />
                             <div>
                                 <label for="email" className="block mb-2 pt-6 text-sm text-gray-600 dark:text-gray-200">Email Address</label>
-                                <input type="email" name="email" id="email" placeholder="example@example.com" className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                                <input type="email" name="email" id="email" placeholder="example@example.com" className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" required />
                             </div>
 
                             <div className="mt-6">
@@ -95,7 +81,7 @@ const SignUp = () => {
                                     <Link href="#" className="text-sm text-gray-400 focus:text-blue-500 hover:text-blue-500 hover:underline">Forgot password?</Link>
                                 </div>
 
-                                <input type="password" name="password" id="password" placeholder="Your Password" className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                                <input type="password" name="password" id="password" placeholder="Your Password" className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" required />
                             </div>
 
                             <div className="mt-6">
