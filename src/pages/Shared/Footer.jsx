@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-gray-100 via-[#bce1ff] to-gray-100 text-center">
-      <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
+    <footer className="bg-white border-t text-center">
+      <div className="max-w-screen-xl px-4 py-10 mx-auto sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8  lg:grid-cols-3">
           <div className='flex flex-col justify-center items-center'>
             <Link to="/" className="py-2 inline-flex items-center">
-              <span className="text-xl text-gray-900  font-extrabold uppercase tracking-wide"
-              >TheBookShop</span>
+              <span className="text-xl text-blue-500  font-extrabold uppercase italic tracking-wide"
+              >TheTechHub</span>
             </Link>
             <p className="max-w-xs mt-4 text-lg text-gray-600">
               join Our Social site
@@ -95,7 +95,7 @@ const Footer = () => {
           </div>
         </div>
         <p className="mt-8 text-xs text-gray-800 text-center">
-          © 2023 TheBookShop
+          © 2023 TheTechHub
         </p>
       </div>
     </footer>

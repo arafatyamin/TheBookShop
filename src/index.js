@@ -2,16 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { RouterProvider } from 'react-router-dom';
-import { router } from './router/router';
-import AuthProvider from './context/AuthProvider';
+import App from './App';
+import 'react-photo-view/dist/react-photo-view.css';
+import { PhotoProvider } from 'react-photo-view';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AuthProvider>
-    <RouterProvider router={router}></RouterProvider>
-    </AuthProvider>
+    <PhotoProvider>
+      <App></App>
+    </PhotoProvider>
   </React.StrictMode>
 );
 reportWebVitals();

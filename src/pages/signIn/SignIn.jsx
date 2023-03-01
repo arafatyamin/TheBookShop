@@ -31,7 +31,7 @@ const SignIn = () => {
             <div className="hidden w-full bg-cover lg:block lg:w-1/2" style={{backgroundImage: "url(https://i.ibb.co/5h8qC0N/banner3.jpg)"}}>
                 <div className="flex items-center h-full px-20 bg-gray-900 bg-opacity-40">
                     <div>
-                        <h2 className="text-4xl font-bold text-white">Brand</h2>
+                        <h2 className="text-4xl font-bold text-white">TheTechHub</h2>
                         
                         <p className="max-w-xl mt-3 text-gray-300">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In autem ipsa, nulla laboriosam dolores, repellendus perferendis libero suscipit nam temporibus molestiae</p>
                     </div>
@@ -41,7 +41,7 @@ const SignIn = () => {
             <div className="flex bg-transparent items-center w-full lg:max-w-md px-6 mx-auto lg:w-1/2">
                 <div className="flex-1">
                     <div className="text-center">
-                        <h2 className="text-4xl font-bold text-center lg:text-gray-700 lg:dark:text-white">Brand</h2>
+                        <h2 className="text-4xl font-bold text-center lg:text-gray-700 lg:dark:text-white uppercase">Welcome</h2>
                         
                         <p className="mt-3 text-gray-500 dark:text-gray-300">Sign in to access your account</p>
                     </div>

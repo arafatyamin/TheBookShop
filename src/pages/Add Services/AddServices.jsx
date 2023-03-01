@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
+import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../context/AuthProvider';
 
 const AddServices = () => {
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
   const name = user?.displayName;
   const photo = user?.photoURL;
   const email = user?.email;
@@ -13,36 +14,38 @@ const AddServices = () => {
     const price = event.target.number.value;
     const url = event.target.image.value;
     const about = event.target.details.value;
-    console.log(title, price, url, about );
+    console.log(title, price, url, about);
 
     const service = {
       title,
       price,
       url,
       about,
-      author:{
+      author: {
         name,
         email,
         photo,
       },
-      reviews:{
+      reviews: {
         rating: 0,
         total_reviews: 0,
       },
       time: new Date(),
-  }
-  
-  fetch('http://localhost:5000/new/services', {
+    }
+
+    fetch('https://the-tech-hub-server.vercel.app/new/services', {
       method: 'POST',
       headers: {
-          'content-type': 'application/json'
+        'content-type': 'application/json'
       },
       body: JSON.stringify(service)
-  })
-  .then(res => res.json())
-  .then(data =>{ 
-      console.log(data)
-  })
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        toast.success('successfully create service')
+      })
+    event.target.reset();
   }
 
   return (
